@@ -29,7 +29,7 @@ public class PlayerUtils {
             return;
         }
         Location newLoc = new Location(p.getWorld(), p.getLocation().getX(), p.getLocation().getY() + 0.7, p.getLocation().getZ(), p.getLocation().getYaw(), p.getLocation().getPitch());
-        p.teleport(newLoc);
+        
         for (Player allPlayers : Bukkit.getOnlinePlayers()) {
             allPlayers.hidePlayer(p);
             p.hidePlayer(allPlayers);
@@ -39,6 +39,7 @@ public class PlayerUtils {
             @Override
             public void run() {
                 for (Player allPlayers : Bukkit.getOnlinePlayers()) {
+                    p.teleport(newLoc);
                     allPlayers.showPlayer(p);
                     p.showPlayer(allPlayers);
                 }
